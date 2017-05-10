@@ -18,3 +18,16 @@ Debugbar::warning('Watch out…');
 Debugbar::addMessage('Another message', 'mylabel');
 	 return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('admin', function () {
+    return view('admin/admin_template');
+});
+
+Route::group(['namespace' => 'Admin'], function () {
+	// Controllers Within The "App\Http\Controllers\Admin" Namespace
+	Route::get('admin/test', 'AdminTestController@index');
+});
