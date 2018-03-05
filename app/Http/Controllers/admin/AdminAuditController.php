@@ -6,7 +6,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminTestController extends Controller
+class AdminAuditController extends Controller
 {
     public function index() {
         $task = [
@@ -36,13 +36,9 @@ class AdminTestController extends Controller
                 'color' => 'success'
             ]
         ];
-/*        $users = DB::table('users')
-            ->select(DB::raw('count(*) as user_count, status'))
-            ->where('status', '<>', 1)
-            ->groupBy('status')
-            ->get();*/
-        $phone = DB::table('pz_dianhua')->where('id', 1)->first();
-        return view('admin/test', ['phones' => $phone,'tasks'=>$task,'name'=>"zhang",'active'=>'test']);
+
+        $phone = DB::table('pz_dianhua')->where('id', 2)->first();
+        return view('admin/audit', ['phones' => $phone,'tasks'=>$task,'name'=>"audit",'active'=>'audit']);
     }
 
 }

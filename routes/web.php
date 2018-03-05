@@ -28,5 +28,8 @@ Route::get('admin', function () {
 
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
+	Route::get('admin/audit', 'AdminAuditController@index');
 	Route::get('admin/test', 'AdminTestController@index');
+	Route::get('admin/data', 'AdminDataController@index');
+	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });

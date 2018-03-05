@@ -12,6 +12,13 @@
                         <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
+                <h1>Hello, <?php echo $name; ?></h1>
+
+                    <h5>
+                        {{ $phones->phone }}
+
+                    </h5>
+
                 <div class="box-body">
                     @foreach($tasks as $task)
                         <h5>
