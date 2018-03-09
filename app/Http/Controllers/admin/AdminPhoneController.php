@@ -26,9 +26,9 @@ class AdminPhoneController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate($request, [
-            'phone' => 'required',
-            'description' => 'required',
+        $this->validate($request, [
+            'phone' => 'required|max:15|min:3',
+            'description' => 'required|min:3',
         ]);
         $phone = new JubaoPhones();
         $phone->phone = request('phone');
