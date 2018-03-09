@@ -24,7 +24,7 @@ class AdminPhoneController extends Controller
         return view('admin/phone/create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         request()->validate($request, [
             'phone' => 'required',
