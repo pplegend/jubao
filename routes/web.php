@@ -31,5 +31,13 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::get('admin/audit', 'AdminAuditController@index');
 	Route::get('admin/test', 'AdminTestController@index');
 	Route::get('admin/data', 'AdminDataController@index');
+	Route::get('admin/phones', 'AdminPhoneController@index')->name('phones.index');
+	Route::get('admin/phone', 'AdminPhoneController@create')->name('phone.create');
+	Route::get('admin/phones/{phone}', 'AdminPhoneController@edit')->name('phone.edit');
+	Route::post('admin/phones/{id}', 'AdminPhoneController@update')->name('phone.update');
+	Route::get('admin/phones/aduit/{id}', 'AdminPhoneController@aduit')->name('phone.aduit');
+	Route::get('admin/phones/notaduit/{id}', 'AdminPhoneController@aduit')->name('phone.notaduit');
+	Route::post('admin/phone', 'AdminPhoneController@store')->name('phone.store');
+
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });

@@ -31,8 +31,8 @@
         <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li @if( isset($active) && $active == 'audit') class="active" @endif ><a href="/admin/audit"><span>审核</span></a></li>
-            <li @if( isset($active) && $active == 'test') class="active" @endif ><a href="/admin/test"><span>测试</span></a></li>
+            <li @if( isset($active) && $active == 'audit') class="active" @endif ><a href="/admin/audit"><span>未审核</span></a></li>
+            <li @if( isset($active) && $active == 'noaudit') class="active" @endif ><a href="/admin/phones"><span>已审核</span></a></li>
             <li @if(isset($active) && $active == 'data') class="active" @endif ><a href="/admin/data"><span>数据</span></a></li>
 
         </ul><!-- /.sidebar-menu -->
