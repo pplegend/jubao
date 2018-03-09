@@ -26,7 +26,7 @@ class AdminPhoneController extends Controller
 
     public function store()
     {
-        request()->validate([
+        request()->validate($request, [
             'phone' => 'required',
             'description' => 'required',
         ]);
