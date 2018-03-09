@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('admin', function () {
     return view('admin/admin_template');
-});
+})->middleware('auth');
 
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
@@ -41,3 +41,6 @@ Route::group(['namespace' => 'Admin'], function () {
 
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
