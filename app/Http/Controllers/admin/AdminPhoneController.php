@@ -64,10 +64,10 @@ class AdminPhoneController extends Controller
         }
         $result = JubaoPhones::where('id', $id)->update(array('status'=>1));
         if($result){
-            return redirect()->route('phones.index')
+            return redirect()->route('aduit')
                 ->with('success','Phone updated successfully');
         }else{
-            return redirect()->route('phones.index')
+            return redirect()->route('aduit')
                 ->with('success','Phone updated failed');
         }
 
@@ -84,10 +84,10 @@ class AdminPhoneController extends Controller
         }
         $result = JubaoPhones::where('id', $id)->update(array('status'=>2));
         if($result){
-            return redirect()->route('phones.index')
+            return redirect()->route('aduit')
                 ->with('success','Phone updated successfully');
         }else{
-            return redirect()->route('phones.index')
+            return redirect()->route('aduit')
                 ->with('success','Phone updated failed');
         }
     }

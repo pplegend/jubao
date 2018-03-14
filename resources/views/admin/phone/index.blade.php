@@ -29,8 +29,8 @@
                                 <td>{{$phone->status}}</td>
                                 <td>
                                     @if($active == 'audit')
-                                        <a class="btn btn-primary" href="{{ route('phone.aduit',$phone->id) }}">不通过</a>
-                                        <a class="btn btn-primary" href="{{ route('phone.notaduit',$phone->id) }}">通过</a>
+                                        <a class="btn btn-primary" href="{{ route('phone.aduit',$phone->id) }}">通过</a>
+                                        <a class="btn btn-primary" href="{{ route('phone.notaduit',$phone->id) }}">不通过</a>
                                     @else
                                         <a class="btn btn-primary" href="{{ route('phone.edit',$phone->id) }}">Edit</a>
                                         <a class="btn btn-primary" href="{{ route('phone.edit',$phone->id) }}">Delete</a>
