@@ -16,7 +16,8 @@ class AdminPhoneController extends Controller
                     ->groupBy('status')
                     ->get();*/
         $phone = DB::table('jubao_phones')->where('status','=',1)->simplePaginate(5);
-        return view('admin/phone/index', ['phones' => $phone,'active'=>'noaudit']);
+        $qq = DB::table('pz_qq')->where('status','=',1)->simplePaginate(5);
+        return view('admin/phone/index', ['phones' => $phone,'active'=>'noaudit','qqs'=>$qq]);
     }
 
     public function create()

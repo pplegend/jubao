@@ -9,4 +9,5 @@ class qq extends Model
     protected $fillable = [
         'body', 'url', 'author','qq'
     ];
+    protected $table = 'pz_qq';
 }

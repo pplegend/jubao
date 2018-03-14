@@ -21,7 +21,7 @@ Debugbar::addMessage('Another message', 'mylabel');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('qq/{id}', 'QqController@show')->name('qq.show');
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	Route::get('admin/audit', 'AdminAuditController@index')->name('aduit');
@@ -35,8 +35,13 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::post('admin/phones/{id}', 'AdminPhoneController@update')->name('phone.update');
 	Route::post('admin/phone', 'AdminPhoneController@store')->name('phone.store');
 
-
+	Route::get('admin/qqs/aduit/{id}', 'QqController@aduit')->name('qq.aduit');
+	Route::get('admin/qqs/notaduit/{id}', 'QqController@notaduit')->name('qq.notaduit');
+	Route::get('admin/qq', 'QqController@create')->name('qq.create');
+	Route::post('admin/qq', 'QqController@store')->name('qq.store');
 	
+	Route::post('admin/qqs/{id}', 'QqController@update')->name('qq.update');
+	Route::get('admin/qqs/{qq}', 'QqController@edit')->name('qq.edit');
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });
 
