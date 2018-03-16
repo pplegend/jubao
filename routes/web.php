@@ -11,16 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-   	Debugbar::info("info");
-Debugbar::error('Error!');
-Debugbar::warning('Watch out…');
-Debugbar::addMessage('Another message', 'mylabel');
-	 return view('welcome');
-});
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('qq/{id}', 'QqController@show')->name('qq.show');
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
@@ -39,7 +32,7 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::get('admin/qqs/notaduit/{id}', 'QqController@notaduit')->name('qq.notaduit');
 	Route::get('admin/qq', 'QqController@create')->name('qq.create');
 	Route::post('admin/qq', 'QqController@store')->name('qq.store');
-	
+
 	Route::post('admin/qqs/{id}', 'QqController@update')->name('qq.update');
 	Route::get('admin/qqs/{qq}', 'QqController@edit')->name('qq.edit');
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html

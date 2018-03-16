@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cbd04d0579f4e51752406c6eb89c2655",
-    "content-hash": "c5c7714d33195cce3d4b47c66a21a3a9",
+    "hash": "0659e14d761c8500f93b048b96baa698",
+    "content-hash": "a2de76ddaebc2e163463587a05b24c4d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -201,6 +201,57 @@
                 "parser"
             ],
             "time": "2018-03-08 01:11:30"
+        },
+        {
+            "name": "gigablah/sphinxphp",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gigablah/sphinxphp.git",
+                "reference": "6d5e97fdd33c1129ca372203d1330827c1cbc46c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/gigablah/sphinxphp/6d5e97fdd33c1129ca372203d1330827c1cbc46c.zip",
+                "reference": "6d5e97fdd33c1129ca372203d1330827c1cbc46c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sphinx": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Aksyonoff",
+                    "homepage": "http://sphinxsearch.com/"
+                }
+            ],
+            "description": "Sphinx Search PHP API",
+            "homepage": "http://sphinxsearch.com/",
+            "keywords": [
+                "api",
+                "search",
+                "sphinx"
+            ],
+            "time": "2013-08-22 08:05:44"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -750,16 +801,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.1",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41.zip",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
+                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/bba6c6e410c6b4317e37a9474aeaa753808c3875.zip",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +850,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-09 15:49:34"
+            "time": "2018-03-10 10:10:14"
         },
         {
             "name": "nikic/php-parser",
@@ -1098,6 +1149,51 @@
                 "uuid"
             ],
             "time": "2018-01-20 00:28:24"
+        },
+        {
+            "name": "sngrl/sphinxsearch",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sngrl/sphinxsearch.git",
+                "reference": "dc50f1b629d3e7e686afb1c9cf32b5c9b27f590c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/sngrl/sphinxsearch/dc50f1b629d3e7e686afb1c9cf32b5c9b27f590c.zip",
+                "reference": "dc50f1b629d3e7e686afb1c9cf32b5c9b27f590c",
+                "shasum": ""
+            },
+            "require": {
+                "gigablah/sphinxphp": "2.0.8",
+                "illuminate/support": "~5.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "sngrl\\SphinxSearch": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "sngrl",
+                    "email": "reserved@mail.ru"
+                }
+            ],
+            "description": "Laravel package to query Sphinxsearch in Laravel 5",
+            "homepage": "http://github.com/sngrl/sphinxsearch",
+            "keywords": [
+                "laravel",
+                "laravel 5",
+                "sphinx",
+                "sphinxsearch"
+            ],
+            "time": "2017-11-03 07:09:56"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3554,7 +3650,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sngrl/sphinxsearch": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

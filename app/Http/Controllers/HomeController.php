@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use sngrl\SphinxSearch\SphinxSearch;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $sphinx = new SphinxSearch();
+        $sphinx->setMatchMode(2);
+        $results = $sphinx->search('*味词*', 'jubao_phone_index')->query();
+//        dd($sphinx->getErrorMessage());
+        return view('home', ['results'=>$results]);
     }
 }

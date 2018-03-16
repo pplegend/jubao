@@ -81,7 +81,7 @@
                         </tbody>
                     </table>
                     <?php echo $qqs->render(); ?>
-                    @include('admin/phone/createphone_form')
+                    @include('admin/qq/create_form')
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div><!-- /.col -->
