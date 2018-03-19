@@ -15,6 +15,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('qq/{id}', 'QqController@show')->name('qq.show');
+Route::get('pz_phone', 'PzphoneController@index');
+Route::get('pz_qq', 'QqController@index')->name('pz_qq.list');
+Route::post('search/{type}', 'HomeController@search')->name('search');
+
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	Route::get('admin/audit', 'AdminAuditController@index')->name('aduit');
