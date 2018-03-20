@@ -22,7 +22,7 @@ class QqController extends Controller
 
     public function index(){
         $records = DB::table('pz_qq')
-            ->select('id','qq as title','body')
+            ->select('id','title','body')
             ->where('status','=',1)
             ->where('body','!=','')
             ->orderBy('count','desc')

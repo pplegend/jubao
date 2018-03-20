@@ -11,9 +11,16 @@
         @endif
         @include('searchform')
     </div>
-    <div class="row">
+    <div class="row" id="jubaophone_list">
         @foreach ($results as $result)
-                <p>{{$result->title}}  {{$result->body}}</p>
+                <div class="card">
+                    <div class="front">
+                        {{$result->body}}
+                    </div>
+                    <div class="back">
+                        {{$result->title}}
+                    </div>
+                </div>
         @endforeach
         <?php echo $results->render(); ?>
     </div>

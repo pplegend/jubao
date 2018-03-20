@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('qq/{id}', 'QqController@show')->name('qq.show');
 Route::get('pz_phone', 'PzphoneController@index');
 Route::get('pz_qq', 'QqController@index')->name('pz_qq.list');
+Route::get('pz_email', 'EmailController@index')->name('pz_email.list');
+Route::get('pz_weixin', 'WeixinController@index')->name('pz_weixin.list');
+Route::get('pz_company', 'CompanyController@index')->name('pz_gs.list');
 Route::post('search/{type}', 'HomeController@search')->name('search');
 
 Route::group(['namespace' => 'Admin'], function () {

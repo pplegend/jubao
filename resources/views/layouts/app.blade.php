@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -49,6 +50,9 @@
                         <li><a href="/"> 权威号码</a></li>
                         <li><a href="/pz_phone"> 骗子号码</a></li>
                         <li><a href="/pz_qq"> 骗子QQ</a></li>
+                        <li><a href="/pz_email"> 骗子邮箱</a></li>
+                        <li><a href="/pz_weixin"> 骗子微信</a></li>
+                        <li><a href="/pz_company"> 不良公司</a></li>
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
@@ -83,6 +87,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/flip.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
 </body>
 </html>

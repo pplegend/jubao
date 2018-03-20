@@ -1,0 +1,19 @@
+.card {
+    height: 30px;
+    display: inline-block;
+    text-align:center;
+    padding: 5px;
+}
+
+
+.front {
+    background-color: #368cbf;
+    color: white;
+    padding: 5px 20px 0 20px;
+}
+.back {
+    background-color: #7ebc59;
+    color: white;
+    padding: 5px 20px 0 20px;
+    height: 30px !important;
+}

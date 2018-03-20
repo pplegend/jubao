@@ -14,6 +14,14 @@
         <div class="row">
             @if(isset($results))
                 <p>{{$results->title}}  {{$results->body}}</p>
+                <?php
+                $urls = json_decode($results->url,true);
+                if($urls){
+                    foreach ($urls as $url){
+                        echo "<p> <img src='http://pic.namiyami.com/full/{$url}' /></p>";
+                    }
+                }
+                ?>
             @else
                 <p>没有找到相关纪录</p>
             @endif

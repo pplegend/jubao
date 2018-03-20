@@ -3,25 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\pzphone;
+use App\Email;
 use DB;
 
-class PzphoneController extends Controller
+class EmailController extends Controller
 {
     public function index(){
-        $records = DB::table('pz_shouji')
+        $records = DB::table('pz_email')
             ->select('id','title','body')
             ->where('status','=',1)
             ->where('body','!=','')
             ->orderBy('count','desc')
             ->limit(5)
             ->get();
-        return view('list', ['results'=>$records,'action'=>'search/shoujis','placeholder'=>'搜索手机号码']);
+        return view('list', ['results'=>$records,'action'=>'search/email','placeholder'=>'搜索email']);
     }
 
     public function show($id)
     {
-        $qq = pzphone::find($id);
+        $qq = Email::find($id);
         return view('qqshow', ['qq'=>$qq]);
     }
 }
