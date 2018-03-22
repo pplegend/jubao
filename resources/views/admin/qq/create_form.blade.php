@@ -1,8 +1,8 @@
 <form method="post" action="/admin/qq" enctype="multipart/form-data" >
     {{ csrf_field() }}
     <div class="form-group">
-        <label for="qq">QQ 号*</label>
-        <input type="text" class="form-control" id="qq" name="qq"  />
+        <label for="title">QQ 号*</label>
+        <input type="text" class="form-control" id="title" name="title"  />
     </div>
     <div class="form-group">
         <label for="body">详情描述*</label>

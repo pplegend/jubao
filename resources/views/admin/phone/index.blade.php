@@ -24,7 +24,7 @@
                         @foreach ($phones as $phone)
                             <tr>
                                 <td>{{$phone->id}}</td>
-                                <td>{{$phone->phone}}</td>
+                                <td>{{$phone->title}}</td>
                                 <td>{{$phone->description}}</td>
                                 <td>
                                     @if($active == 'audit')
@@ -48,7 +48,7 @@
             <!-- Box -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">QQ列表</h3>
+                    <h3 class="box-title">骗子列表</h3>
                     <div class="box-tools pull-right">
                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                         <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -62,26 +62,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($qqs as $phone)
+                        @foreach ($pianzis as $phone)
                             <tr>
                                 <td>{{$phone->id}}</td>
-                                <td>{{$phone->qq}}</td>
+                                <td>{{$phone->title}}</td>
                                 <td>{{$phone->body}}</td>
                                 <td style="width: 140px;">
                                     @if($active == 'audit')
-                                        <a class="btn btn-primary" href="{{ route('qq.show',$phone->id) }}">查看</a>
+                                        <a class="btn btn-primary" href="{{ route('pz.show',$phone->id) }}">查看</a>
 
                                     @else
-                                        <a class="btn btn-primary" href="{{ route('qq.edit',$phone->id) }}">编辑</a>
-                                        <a class="btn btn-primary" href="{{ route('qq.notaduit',$phone->id) }}">删除</a>
+                                        <a class="btn btn-primary" href="{{ route('edit',$phone->id) }}">编辑</a>
+                                        <a class="btn btn-primary" href="{{ route('notaduit',$phone->id) }}">删除</a>
                                     @endif
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <?php echo $qqs->render(); ?>
-                    @include('admin/qq/create_form')
+                    <?php echo $pianzis->render(); ?>
+                    @include('woyaojubaoform')
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div><!-- /.col -->

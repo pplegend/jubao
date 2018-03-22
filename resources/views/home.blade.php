@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     {{--@include('carousel')--}}
-    <div class="row">
+    <div class="row iamcenter">
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
@@ -22,7 +21,12 @@
                     </div>
                 </div>
         @endforeach
-        <?php echo $results->render(); ?>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <?php echo $results->render(); ?>
+        </div>
+    </div>
 @endsection
+
+

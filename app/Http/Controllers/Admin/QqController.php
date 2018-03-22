@@ -48,7 +48,7 @@ class QqController extends Controller
     public function update(UploadRequest $request,$id){
         $this->validate($request, [
             'body' => 'required',
-            'qq' => 'required',
+            'title' => 'required',
         ]);
         $url = array();
         if($request->hasFile('file')){
@@ -75,7 +75,7 @@ class QqController extends Controller
         }
         $url = json_encode($url);
         $qq = qq::find($id);
-        $qq->qq = request('qq');
+        $qq->title = request('title');
         $qq->body = request('body');
         $qq->url = $url;
         $qq->save();
@@ -98,7 +98,7 @@ class QqController extends Controller
     public function store(UploadRequest $request){
 
         $this->validate($request, [
-            'qq' => 'required',
+            'title' => 'required',
             'body' => 'required',
         ]);
 
@@ -128,7 +128,7 @@ class QqController extends Controller
         $url = json_encode($url);
 
         $qq = new qq();
-        $qq->qq = request('qq');
+        $qq->qq = request('title');
         $qq->body = request('body');
         $qq->url = $url;
         $qq->author = 'admin';

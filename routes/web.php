@@ -14,18 +14,27 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('qq/{id}', 'QqController@show')->name('qq.show');
+Route::get('pz/{id}', 'PzController@show')->name('pz.show');
+Route::get('admin/pzs/{pz}', 'PzController@edit')->name('pz.edit');
+
 Route::get('pz_phone', 'PzphoneController@index');
 Route::get('pz_qq', 'QqController@index')->name('pz_qq.list');
 Route::get('pz_email', 'EmailController@index')->name('pz_email.list');
 Route::get('pz_weixin', 'WeixinController@index')->name('pz_weixin.list');
 Route::get('pz_company', 'CompanyController@index')->name('pz_gs.list');
+Route::get('woyaojubao', function () {
+	return view('woyaojubao');
+})->name('pz_jubao.show');
+
 Route::post('search/{type}', 'HomeController@search')->name('search');
+Route::post('woyaojubao', 'HomeController@woyaojubao')->name('woyaojubao');
 
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
-	Route::get('admin/audit', 'AdminAuditController@index')->name('aduit');
-	Route::get('admin/test', 'AdminTestController@index');
+	Route::get('admin', 'AdminAuditController@index')->name('aduitlist');
+	Route::get('admin/audit', 'AdminAuditController@aduit')->name('aduit');
+	Route::get('admin/audit', 'AdminAuditController@notaduit')->name('notaduit');
+
 	Route::get('admin/data', 'AdminDataController@index');
 	Route::get('admin/phones', 'AdminPhoneController@index')->name('phones.index')->middleware('auth');
 	Route::get('admin/phone', 'AdminPhoneController@create')->name('phone.create');
@@ -41,7 +50,7 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::post('admin/qq', 'QqController@store')->name('qq.store');
 
 	Route::post('admin/qqs/{id}', 'QqController@update')->name('qq.update');
-	Route::get('admin/qqs/{qq}', 'QqController@edit')->name('qq.edit');
+	
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });
 

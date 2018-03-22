@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use sngrl\SphinxSearch\SphinxSearch;
 use Validator;
 use DB;
+use App\Pztable;
+
 
 class HomeController extends Controller
 {
@@ -30,7 +32,7 @@ class HomeController extends Controller
             ->select('id','title','description as body')
             ->where('status','=',1)
             ->orderBy('counter','desc')
-            ->simplePaginate(5);
+            ->simplePaginate(10);
 
         return view('home', ['results'=>$records,'action'=>'search/jubaophones','placeholder'=>'搜索号码/部门']);
     }
@@ -96,6 +98,49 @@ class HomeController extends Controller
         return view($view, ['results'=>$searchRecords,'action'=>$action,'placeholder'=>$placeholder]);
     }
 
+    public function woyaojubao(Request $request){
+
+
+        $code = $request->input('CaptchaCode');
+        $isHuman = captcha_validate($code);
+
+        if ($isHuman) {
+            dd('human');
+            // TODO: Captcha validation passed, perform protected  action
+        } else {
+            // TODO: Captcha validation failed, show error message
+            dd('not human');
+        }
+        
+        $validator = Validator::make($request->all(),[
+            'jubaobody' => 'required|max:20|min:3',
+        ]);
+        if($validator->fails()){
+            dd('举报详情不得少于三个字');
+        }
+        switch (request('type')){
+            case 'phone':
+                break;
+            case 'QQ':
+                break;
+            case 'website':
+                break;
+            case 'wechat':
+                break;
+            case 'email':
+                break;
+            case 'company':
+                break;
+            default:
+                break;
+
+        }
+        $phone = new JubaoPhones();
+        $phone->phone = request('phone');
+        $phone->description = request('description');
+        $phone->save();
+        return redirect('/admin/phones');
+    }
     /**
      * @param $ids array
      */

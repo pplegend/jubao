@@ -1,8 +1,9 @@
-.card {
+#jubaophone_list .card {
     height: 30px;
     display: inline-block;
     text-align:center;
     padding: 5px;
+    margin: 10px 0;
 }
 
 
@@ -17,3 +18,28 @@
     padding: 5px 20px 0 20px;
     height: 30px !important;
 }
+#context{
+    width: 60%;
+    float:left;
+    margin-right: 10px;
+}
+#woyaojubao{
+    float: right;
+}
+@media (min-width: 768px){
+    #frontsearchform {
+        width: 500px;
+        margin-right: 20px;
+    }
+}
+.iamcenter{
+    max-width: 500px;
+    margin:0 auto;
+}
+
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top30 { margin-top:30px; }

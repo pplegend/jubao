@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         {{--@include('carousel')--}}
-        <div class="row">
+        <div class="row iamcenter">
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -26,5 +25,4 @@
                 <p>没有找到相关纪录</p>
             @endif
         </div>
-    </div>
 @endsection

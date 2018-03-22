@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0659e14d761c8500f93b048b96baa698",
-    "content-hash": "a2de76ddaebc2e163463587a05b24c4d",
+    "hash": "2d1ddd00fb94c4c68d83252aa6a278bd",
+    "content-hash": "2fdb73fbfecf9232296016ea1a34dedd",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -55,6 +55,96 @@
                 "webprofiler"
             ],
             "time": "2017-07-21 11:56:48"
+        },
+        {
+            "name": "captcha-com/captcha",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.captcha.com/botdetect-php-captcha-library.git",
+                "reference": "09e9db1913e2ae7f58ef9160783c5e6388e7ba11"
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "suggest": {
+                "captcha-com/cakephp-captcha": "BotDetect 4 PHP Captcha generator integration for the CakePHP framework.",
+                "captcha-com/laravel-captcha": "BotDetect 4 PHP Captcha generator integration for the Laravel framework.",
+                "captcha-com/symfony-captcha-bundle": "BotDetect 4 PHP Captcha generator integration for the Symfony framework."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "BotDetect Captcha",
+                    "email": "botdetect.support@captcha.com",
+                    "homepage": "http://captcha.com/php-captcha.html"
+                }
+            ],
+            "description": "BotDetect 4 PHP Captcha Generator -- Free composer package.",
+            "homepage": "http://captcha.com/php-captcha.html",
+            "keywords": [
+                "captcha"
+            ],
+            "time": "2018-02-15 17:27:52"
+        },
+        {
+            "name": "captcha-com/laravel-captcha",
+            "version": "4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/captcha-com/laravel-captcha.git",
+                "reference": "0d8ab89dd7a7f333069ff4e525a36e2f9e1ef0fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/captcha-com/laravel-captcha/0d8ab89dd7a7f333069ff4e525a36e2f9e1ef0fa.zip",
+                "reference": "0d8ab89dd7a7f333069ff4e525a36e2f9e1ef0fa",
+                "shasum": ""
+            },
+            "require": {
+                "captcha-com/captcha": "4.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelCaptcha\\": "src/"
+                },
+                "files": [
+                    "src/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "BotDetect Captcha",
+                    "email": "botdetect.support@captcha.com",
+                    "homepage": "https://captcha.com/doc/php/laravel-captcha-quickstart.html"
+                }
+            ],
+            "description": "BotDetect 4 PHP Captcha generator integration for the Laravel framework.",
+            "homepage": "https://captcha.com/doc/php/laravel-captcha-quickstart.html",
+            "keywords": [
+                "Laravel Captcha",
+                "botdetect",
+                "captcha",
+                "captcha generator"
+            ],
+            "time": "2018-03-18 07:22:45"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
