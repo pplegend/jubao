@@ -7,7 +7,9 @@ use sngrl\SphinxSearch\SphinxSearch;
 use Validator;
 use DB;
 use App\Pztable;
-
+use Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UploadRequest;
 
 class HomeController extends Controller
 {
@@ -98,48 +100,98 @@ class HomeController extends Controller
         return view($view, ['results'=>$searchRecords,'action'=>$action,'placeholder'=>$placeholder]);
     }
 
-    public function woyaojubao(Request $request){
+    public function woyaojubao(UploadRequest $request){
+        $ip = \Request::ip();
 
+        //判断用户是否登陆
+        if($user = Auth::user())
+        {
+            $user_id = $user->id;
+        }else{
+            $user_id = -1;
+        }
 
         $code = $request->input('CaptchaCode');
-        $isHuman = captcha_validate($code);
-
-        if ($isHuman) {
-            dd('human');
-            // TODO: Captcha validation passed, perform protected  action
-        } else {
-            // TODO: Captcha validation failed, show error message
-            dd('not human');
+        if($user_id == 1){
+            $isHuman = true;
+        }else{
+            $isHuman = captcha_validate($code);
         }
-        
         $validator = Validator::make($request->all(),[
             'jubaobody' => 'required|max:20|min:3',
         ]);
         if($validator->fails()){
             dd('举报详情不得少于三个字');
         }
-        switch (request('type')){
-            case 'phone':
-                break;
-            case 'QQ':
-                break;
-            case 'website':
-                break;
-            case 'wechat':
-                break;
-            case 'email':
-                break;
-            case 'company':
-                break;
-            default:
-                break;
 
+        if ($isHuman) {
+            $url = array();
+            if($request->hasFile('file')){
+                foreach ($request->file('file') as $file){
+                    //文件是否上传成功
+                    if($file->isValid()){	//判断文件是否上传成功
+                      //  $originalName = $file->getClientOriginalName(); //源文件名
+
+                        $ext = $file->getClientOriginalExtension();    //文件拓展名
+
+                      //  $type = $file->getClientMimeType(); //文件类型
+
+                        $realPath = $file->getRealPath();   //临时文件的绝对路径
+
+                        $fileName = date('Y-m-d-H-i-s').'-'.uniqid().'.'.$ext;  //新文件名
+
+                        $bool = Storage::disk('public')->put($fileName,file_get_contents($realPath));   //传成功返回bool值
+                        if($bool){
+                            $url[] = $fileName;
+                        }
+                    }
+                }
+
+            }
+            $url = json_encode($url);
+
+            switch (request('type')){
+                case 'phone':
+                    $type = 1;
+                    break;
+                case 'QQ':
+                    $type = 2;
+                    break;
+                case 'website':
+                    $type = 3;
+                    break;
+                case 'wechat':
+                    $type = 6;
+                    break;
+                case 'email':
+                    $type = 5;
+                    break;
+                case 'company':
+                    $type = 4;
+                    break;
+                default:
+                    $type = 8;
+                    break;
+
+            }
+            $phone = new Pztable();
+            $phone->body = request('jubaobody');
+            $phone->title = request('title');
+            $phone->author = $user_id;
+            $phone->type = $type;
+            $phone->visitor = $ip;
+            $phone->url = $url;
+            $phone->save();
+            return redirect()->route('woyaojubao')
+                ->with('success','举报成功，我们将尽快审核，审核成功后会在网站显示');
+        } else {
+            // TODO: Captcha validation failed, show error message
+            return redirect()->route('woyaojubao')
+                ->with('fail','验证码错误');
         }
-        $phone = new JubaoPhones();
-        $phone->phone = request('phone');
-        $phone->description = request('description');
-        $phone->save();
-        return redirect('/admin/phones');
+        
+
+
     }
     /**
      * @param $ids array
@@ -165,4 +217,6 @@ class HomeController extends Controller
 
         return $records;
     }
+
+
 }

@@ -39,11 +39,12 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"> 权威号码</a></li>
-                    <li><a href="/pz_phone"> 骗子号码</a></li>
-                    <li><a href="/pz_qq"> 骗子QQ</a></li>
-                    <li><a href="/pz_email"> 骗子邮箱</a></li>
-                    <li><a href="/pz_weixin"> 骗子微信</a></li>
-                    <li><a href="/pz_company"> 不良公司</a></li>
+                    <li><a href="/pz_list/phone"> 骗子号码</a></li>
+                    <li><a href="/pz_list/qq"> 骗子QQ</a></li>
+                    <li><a href="/pz_list/email"> 骗子邮箱</a></li>
+                    <li><a href="/pz_list/wechat"> 骗子微信</a></li>
+                    <li><a href="/pz_list/company"> 不良公司</a></li>
+                    <li><a href="/pz_list/others"> 其它</a></li>
                     @if (Auth::guest())
                         <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>

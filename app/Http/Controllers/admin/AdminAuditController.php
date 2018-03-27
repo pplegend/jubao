@@ -11,13 +11,26 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminAuditController extends Controller
 {
-    public function index() {
-
-        $phone = DB::table('jubao_phones')->where('status','=',0)->simplePaginate(5);
-        $pianzis = DB::table('pz_table')->where('status','=',0)->simplePaginate(5);
-        return view('admin/phone/index', ['phones' => $phone,'pianzis'=>$pianzis,'active'=>'audit']);
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 已经审核列表
+     */
+    public function auditlist(){
+        $phone = DB::table('jubao_phones')->where('status','=',1)->simplePaginate(5);
+        $pianzis = DB::table('pz_table')->where('status','=',1)->simplePaginate(5);
+        return view('admin/auditlist', ['phones' => $phone,'pianzis'=>$pianzis,'active'=>'audit']);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 未审核列表
+     */
+    public function notauditlist(){
+        $phone = DB::table('jubao_phones')->where('status','=',0)->simplePaginate(5);
+        $pianzis = DB::table('pz_table')->where('status','=',0)->simplePaginate(5);
+        return view('admin/auditlist', ['phones' => $phone,'pianzis'=>$pianzis,'active'=>'notaudit']);
+    }
+    
     public function aduit($id){
         if(!$id){
             return false;

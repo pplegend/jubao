@@ -107,11 +107,11 @@ class QqController extends Controller
             foreach ($request->file('file') as $file){
                 //文件是否上传成功
                 if($file->isValid()){	//判断文件是否上传成功
-                    $originalName = $file->getClientOriginalName(); //源文件名
+                  //  $originalName = $file->getClientOriginalName(); //源文件名
 
                     $ext = $file->getClientOriginalExtension();    //文件拓展名
 
-                    $type = $file->getClientMimeType(); //文件类型
+                  //  $type = $file->getClientMimeType(); //文件类型
 
                     $realPath = $file->getRealPath();   //临时文件的绝对路径
 
@@ -133,7 +133,7 @@ class QqController extends Controller
         $qq->url = $url;
         $qq->author = 'admin';
         $qq->save();
-        return redirect('/admin/phones');
+        return redirect('/');
 
 
     }

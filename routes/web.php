@@ -15,9 +15,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('pz/{id}', 'PzController@show')->name('pz.show');
-Route::get('admin/pzs/{pz}', 'PzController@edit')->name('pz.edit');
+Route::get('pz_list/{type}', 'PzController@index');
 
-Route::get('pz_phone', 'PzphoneController@index');
+
 Route::get('pz_qq', 'QqController@index')->name('pz_qq.list');
 Route::get('pz_email', 'EmailController@index')->name('pz_email.list');
 Route::get('pz_weixin', 'WeixinController@index')->name('pz_weixin.list');
@@ -31,26 +31,28 @@ Route::post('woyaojubao', 'HomeController@woyaojubao')->name('woyaojubao');
 
 Route::group(['namespace' => 'Admin'], function () {
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
-	Route::get('admin', 'AdminAuditController@index')->name('aduitlist');
-	Route::get('admin/audit', 'AdminAuditController@aduit')->name('aduit');
-	Route::get('admin/audit', 'AdminAuditController@notaduit')->name('notaduit');
+	Route::get('admin/audit', 'AdminAuditController@auditlist')->name('audit');
+	Route::get('admin', 'AdminAuditController@auditlist');
+	Route::get('admin/notaudit', 'AdminAuditController@notauditlist')->name('notaudit');
 
-	Route::get('admin/data', 'AdminDataController@index');
-	Route::get('admin/phones', 'AdminPhoneController@index')->name('phones.index')->middleware('auth');
+	//权威号码路由
 	Route::get('admin/phone', 'AdminPhoneController@create')->name('phone.create');
 	Route::get('admin/phones/{phone}', 'AdminPhoneController@edit')->name('phone.edit');
-	Route::get('admin/phones/aduit/{id}', 'AdminPhoneController@aduit')->name('phone.aduit');
-	Route::get('admin/phones/notaduit/{id}', 'AdminPhoneController@notaduit')->name('phone.notaduit');
+	Route::get('admin/phones/aduit/{id}', 'AdminPhoneController@audit')->name('phone.audit');
+	Route::get('admin/phones/notaduit/{id}', 'AdminPhoneController@notaudit')->name('phone.notaudit');
 	Route::post('admin/phones/{id}', 'AdminPhoneController@update')->name('phone.update');
 	Route::post('admin/phone', 'AdminPhoneController@store')->name('phone.store');
 
-	Route::get('admin/qqs/aduit/{id}', 'QqController@aduit')->name('qq.aduit');
-	Route::get('admin/qqs/notaduit/{id}', 'QqController@notaduit')->name('qq.notaduit');
+	//骗子号码，微信等路由
+	Route::get('admin/pzs/audit/{id}', 'PzController@audit')->name('pz.audit');
+	Route::get('admin/pzs/notaudit/{id}', 'PzController@notaudit')->name('pz.notaudit');
+	Route::get('admin/pzs/{pz}', 'PzController@edit')->name('pz.edit');
+	Route::post('admin/pzs/{id}', 'PzController@update')->name('pz.update');
+
+	//还没使用到
 	Route::get('admin/qq', 'QqController@create')->name('qq.create');
 	Route::post('admin/qq', 'QqController@store')->name('qq.store');
-
-	Route::post('admin/qqs/{id}', 'QqController@update')->name('qq.update');
-	
+	Route::get('admin/data', 'AdminDataController@index');
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });
 

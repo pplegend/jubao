@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         @if (isset($pz))
-                            <h1>{{ $pz->qq }} </h1>
+                            <h1>{{ $pz->title }} </h1>
                             <p>{{$pz->body}}</p>
                             <p>{{$pz->author}}</p>
                             <?php

@@ -4,7 +4,7 @@
         <form method="post" action="/admin/pzs/<?php echo $pz->id; ?>" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="title">QQ 号*</label>
+                <label for="title">号码*</label>
                 <input type="text" class="form-control" id="title" name="title"  value="{{$pz->title}}"/>
             </div>
             <div class="form-group">

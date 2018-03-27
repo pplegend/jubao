@@ -12,14 +12,18 @@
     </div>
     <div class="row">
         @foreach ($results as $result)
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="card-title"><a href="#">{{$result->title}}</a></h5>
 
-            <div class="card border-dark mb-3" style="max-width: 18rem; margin: 10px;">
-                <div class="card-header">{{$result->title}}</div>
-                <div class="card-body text-dark">
-                    <p class="card-text">{{$result->body}}</p>
+                    </div>
+                    <div class="panel-body">
+                        <p class="card-text">{{$result->body}}</p>
+                    </div>
                 </div>
-                <div class="card-footer bg-transparent">查看详情</div>
             </div>
+
         @endforeach
     </div>
 

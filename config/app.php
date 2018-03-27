@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         sngrl\SphinxSearch\SphinxSearchServiceProvider::class,
         LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

@@ -9,16 +9,7 @@ use App\JubaoPhones;
 
 class AdminPhoneController extends Controller
 {
-    public function index() {
-        /*        $users = DB::table('users')
-                    ->select(DB::raw('count(*) as user_count, status'))
-                    ->where('status', '<>', 1)
-                    ->groupBy('status')
-                    ->get();*/
-        $phone = DB::table('jubao_phones')->where('status','=',1)->simplePaginate(5);
-        $qq = DB::table('pz_qq')->where('status','=',1)->simplePaginate(5);
-        return view('admin/phone/index', ['phones' => $phone,'active'=>'noaudit','qqs'=>$qq]);
-    }
+
 
     public function create()
     {
@@ -28,25 +19,25 @@ class AdminPhoneController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required|max:15|min:3',
+            'title' => 'required|max:15|min:3',
             'description' => 'required|min:3',
         ]);
         $phone = new JubaoPhones();
-        $phone->phone = request('phone');
+        $phone->title = request('title');
         $phone->description = request('description');
         $phone->save();
-        return redirect('/admin/phones');
+        return redirect('admin/audit');
     }
 
     public function update(Request $request,$id)
     {
         $this->validate($request, [
-            'phone' => 'required|max:15',
+            'title' => 'required|max:15',
             'description' => 'required',
         ]);
 
         JubaoPhones::find($id)->update($request->all());
-        return redirect()->route('phones.index')
+        return redirect()->route('aduit')
             ->with('success','Phone updated successfully');
     //    return response($phone)->header('Content-Type','application/json' );
     }
@@ -85,10 +76,10 @@ class AdminPhoneController extends Controller
         }
         $result = JubaoPhones::where('id', $id)->update(array('status'=>2));
         if($result){
-            return redirect()->route('aduit')
+            return redirect()->route('notaduit')
                 ->with('success','Phone updated successfully');
         }else{
-            return redirect()->route('aduit')
+            return redirect()->route('notaduit')
                 ->with('success','Phone updated failed');
         }
     }

@@ -27,12 +27,12 @@
                                 <td>{{$phone->title}}</td>
                                 <td>{{$phone->description}}</td>
                                 <td>
-                                    @if($active == 'audit')
-                                        <a class="btn btn-primary" href="{{ route('phone.aduit',$phone->id) }}">通过</a>
-                                        <a class="btn btn-primary" href="{{ route('phone.notaduit',$phone->id) }}">不通过</a>
+                                    @if($active == 'notaudit')
+                                        <a class="btn btn-primary" href="{{ route('phone.audit',$phone->id) }}">通过</a>
+                                        <a class="btn btn-primary" href="{{ route('phone.notaudit',$phone->id) }}">不通过</a>
                                     @else
                                         <a class="btn btn-primary" href="{{ route('phone.edit',$phone->id) }}">编辑</a>
-                                        <a class="btn btn-primary" href="{{ route('phone.notaduit',$phone->id) }}">删除</a>
+                                        <a class="btn btn-primary" href="{{ route('phone.notaudit',$phone->id) }}">删除</a>
                                     @endif
                                 </td>
                             </tr>
@@ -66,14 +66,14 @@
                             <tr>
                                 <td>{{$phone->id}}</td>
                                 <td>{{$phone->title}}</td>
-                                <td>{{$phone->body}}</td>
-                                <td style="width: 140px;">
-                                    @if($active == 'audit')
-                                        <a class="btn btn-primary" href="{{ route('pz.show',$phone->id) }}">查看</a>
-
+                                <td> <a href="{{ route('pz.show',$phone->id) }}">{{$phone->body}}</a></td>
+                                <td style="width: 150px;">
+                                    @if($active == 'notaudit')
+                                        <a class="btn btn-primary" href="{{ route('pz.audit',$phone->id) }}">通过</a>
+                                        <a class="btn btn-primary" href="{{ route('pz.notaudit',$phone->id) }}">不通过</a>
                                     @else
-                                        <a class="btn btn-primary" href="{{ route('edit',$phone->id) }}">编辑</a>
-                                        <a class="btn btn-primary" href="{{ route('notaduit',$phone->id) }}">删除</a>
+                                        <a class="btn btn-primary" href="{{ route('pz.edit',$phone->id) }}">编辑</a>
+                                        <a class="btn btn-primary" href="{{ route('pz.notaudit',$phone->id) }}">删除</a>
                                     @endif
                                 </td>
                             </tr>

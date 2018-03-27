@@ -4,7 +4,7 @@
         <form method="post" action="/admin/phones/<?php echo $phone->id; ?>" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group mb-2">
-                <input type="text" class="form-control" id="title" name="phone" value="<?php echo $phone->phone; ?>" />
+                <input type="text" class="form-control" id="title" name="title" value="<?php echo $phone->title; ?>" />
             </div>
             <div class="form-group mx-sm-3 mb-2">
                 <input type="text" id="description" name="description" class="form-control" value="<?php echo $phone->description; ?>" />
