@@ -38,13 +38,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"> 权威号码</a></li>
-                    <li><a href="/pz_list/phone"> 骗子号码</a></li>
-                    <li><a href="/pz_list/qq"> 骗子QQ</a></li>
-                    <li><a href="/pz_list/email"> 骗子邮箱</a></li>
-                    <li><a href="/pz_list/wechat"> 骗子微信</a></li>
-                    <li><a href="/pz_list/company"> 不良公司</a></li>
-                    <li><a href="/pz_list/others"> 其它</a></li>
+                    <li @if( isset($active) && $active == 'jubaophones') class="active" @endif ><a href="/"> 权威号码</a></li>
+                    <li @if( isset($active) && $active == 'phone') class="active" @endif><a href="/pz_list/phone"> 骗子号码</a></li>
+                    <li @if( isset($active) && $active == 'qq') class="active" @endif><a href="/pz_list/qq"> 骗子QQ</a></li>
+                    <li @if( isset($active) && $active == 'email') class="active" @endif><a href="/pz_list/email"> 骗子邮箱</a></li>
+                    <li @if( isset($active) && $active == 'wechat') class="active" @endif><a href="/pz_list/wechat"> 骗子微信</a></li>
+                    <li @if( isset($active) && $active == 'company') class="active" @endif><a href="/pz_list/company"> 不良公司</a></li>
+                    <li @if( isset($active) && $active == 'others') class="active" @endif><a href="/pz_list/others"> 其它</a></li>
                     @if (Auth::guest())
                         <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>

@@ -18,10 +18,6 @@ Route::get('pz/{id}', 'PzController@show')->name('pz.show');
 Route::get('pz_list/{type}', 'PzController@index');
 
 
-Route::get('pz_qq', 'QqController@index')->name('pz_qq.list');
-Route::get('pz_email', 'EmailController@index')->name('pz_email.list');
-Route::get('pz_weixin', 'WeixinController@index')->name('pz_weixin.list');
-Route::get('pz_company', 'CompanyController@index')->name('pz_gs.list');
 Route::get('woyaojubao', function () {
 	return view('woyaojubao');
 })->name('pz_jubao.show');
@@ -50,8 +46,6 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::post('admin/pzs/{id}', 'PzController@update')->name('pz.update');
 
 	//还没使用到
-	Route::get('admin/qq', 'QqController@create')->name('qq.create');
-	Route::post('admin/qq', 'QqController@store')->name('qq.store');
 	Route::get('admin/data', 'AdminDataController@index');
 	//首页参考 https://adminlte.io/themes/AdminLTE/index2.html
 });

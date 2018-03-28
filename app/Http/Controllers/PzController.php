@@ -17,21 +17,33 @@ class PzController extends Controller
             switch ($type){
                 case 'phone':
                     $type =  1;
+                    $placeholder = '搜索手机号码';
+                    $active ='phone';
                     break;
                 case 'qq':
                     $type = 2;
+                    $placeholder = '搜索QQ号';
+                    $active ='qq';
                     break;
                 case 'email':
                     $type = 5;
+                    $placeholder = '搜索邮箱地址';
+                    $active ='email';
                     break;
                 case 'wechat':
                     $type = 6;
+                    $placeholder = "搜索微信";
+                    $active ='wechat';
                     break;
                 case 'company':
                     $type = 4;
+                    $placeholder = '搜索公司名';
+                    $active ='company';
                     break;
                 default:
                     $type = 8;
+                    $placeholder = '输入关键字';
+                    $active ='others';
                     break;
             }
             $records = DB::table('pz_table')
@@ -41,7 +53,7 @@ class PzController extends Controller
                 ->orderBy('count','desc')
                 ->limit(12)
                 ->get();
-            return view('list', ['results'=>$records,'action'=>'search/shoujis','placeholder'=>'搜索手机号码']);
+            return view('list', ['active'=>$active,'results'=>$records,'action'=>'/search/shoujis','placeholder'=>$placeholder,'type'=>$type]);
         }
 
     }
